@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Login</title> 
+{% endblock %}
+
+
+{% block body %}
+    <div class='container'>
+    <div class="registration-form" >
+    <h1>Login</h1>
+    <h2>{{msg}}</h2>
+    <form name="form_login" action="/login" method="POST">
+        <div><label for="input_registration_email" class="form-label">Email</label>
+        <input type="text" name="email" class="form-control" id="input_registration_email" maxlength="50" placeholder="@"></div>
+        <div><label for="input_registration_newpassword" class="form-label">Password</label>
+        <input type="password" name="newpassword" class="form-control" id="input_registration_newpassword" maxlength="30" >
+        </div>
+        <button type="submit" class="btn_general btn_blue mt-2" id="button_registration_submit">Sign In</button>
+        
+    </form>
+    </div>
+    </div>
+{% endblock %}
