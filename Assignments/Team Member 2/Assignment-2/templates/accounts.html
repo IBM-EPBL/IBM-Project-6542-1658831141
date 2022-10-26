@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+ {% block head %}
+<title>Welcome</title> 
+{% endblock %}
+
+{% block body %}
+<h1 class="display-1">Welcome to the portal {{name}} You have logged in</h1>
+
+<form logout="right" name="form_login" action="/login">
+    <label class="logoutLblPos">
+    <input name="submit2" type="submit" id="submit2" value="log out">
+    </label>
+  </form>
+{% endblock %}
