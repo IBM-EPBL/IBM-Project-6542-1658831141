@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+
+	<script type="text/javascript">
+		var m={{ messages|safe }};
+		for(var i=0;i<m.length;i++)
+		{
+			alert(m[i]);
+		}
+	</script>
+
+	{% endif %}
+{% endwith %}
+
+
+<h1>Registration page</h1>
+<form name="form_login" action='/register' method="post">
+    <div><label for="input_registration_name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="input_registration_name" maxlength="50"></div>
+    <div><label for="input_registration_email" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="input_registration_email" maxlength="50" placeholder="@"></div>
+    <div><label for="input_registration_newpassword" class="form-label">New Password</label>
+    <input type="password" name="newpassword" class="form-control" id="input_registration_newpassword" maxlength="30" placeholder="******">
+    </div>
+    <button type="submit" class="btn btn-primary" id="button_registration_submit">Sign up</button>
+    
+</form>
+
+{% endblock %}
