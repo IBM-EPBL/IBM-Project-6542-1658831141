@@ -1,4 +1,4 @@
-# flask-with-ibm-db2
+# Project Development Phase- Sprint-1
 
 Working with IBM Db2 service 
 
