@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+
+	<script type="text/javascript">
+		var m={{ messages|safe }};
+		for(var i=0;i<m.length;i++)
+		{
+			alert(m[i]);
+		}
+	</script>
+
+	{% endif %}
+{% endwith %}
+
+
+<h1>Registration page</h1>
+<form name="form_login" action='/register' method="post">
+    <div><label for="input_registration_name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="input_registration_name" maxlength="50"></div><br>
+    
+	<div><label for="input_registration_email" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="input_registration_email" maxlength="50" placeholder="@"></div><br>
+	
+	<div><label for="input_registration_phno">Enter your phone number:</label>
+    <input type="tel" id="input_registration_phno" name="phno" pattern="[0-9]{10}"></div><br>
+
+	<div><label for="input_registration_dob" class="form-label">D.O.B</label>
+	<input type="date" id="input_registration_dob" name="dob"></div><br>
+	
+    <div><label>Gender</label><br>
+		<label for="input_registration_gender" class="form-label"> Select you gender</label>
+        <select name="gender">
+			<option value="none" selected>Gender</option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">other</option>
+        </select> </div><br>
+    
+	<div><label for="input_registration_bloodgroup" class="form-label">Blood Group:</label>
+			<select name="bloodgroup">
+				<option>A Positive</option>
+				<option>A Negative</option>
+				<option>A Unknown</option>
+				<option>B Positive</option>
+				<option>B Negative</option>
+				<option>B Unknown</option>
+				<option>AB Positive</option>
+				<option>AB Negative</option>
+				<option>AB Unknown</option>
+				<option>O Positive</option>
+				<option>O Negative</option>
+				<option>O Unknown</option>
+				<option>Unknown</option>
+			</select>
+	</div><br>
+
+	<div><label for="input_registration_weight" class="form-label">weight</label>
+		<input type="text" class="form-control" id ="input_registration_weight" name="weight" value="{{[0][5]}}" placehloder="Enter weight">
+		</div><br>
+		
+	<div><label for="input_registration_newpassword" class="form-label">New Password</label>
+    <input type="password" name="newpassword" class="form-control" id="input_registration_newpassword" maxlength="30" placeholder="******">
+    </div><br>
+    
+	<button type="submit" class="btn btn-primary" id="button_registration_submit">Sign up</button>
+    
+</form>
+
+{% endblock %}
