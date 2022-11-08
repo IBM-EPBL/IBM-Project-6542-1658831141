@@ -16,7 +16,7 @@ pip install ibm-db
 Step 2 : Clone or download this flask repo
 
 ```
-https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Project%20Development%20Phase/Sprint%201
+https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Project%20Development%20Phase/Sprint%202
 ```
 
 Stpe 3 : Run flask app in debug mode 
