@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <script type="text/javascript">
+    var m={{ messages|safe }};
+    for(var i=0;i<m.length;i++)
+    {
+      alert(m[i]);
+    }
+  </script>
+
+  {% endif %}
+{% endwith %}
+
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phno</th>
+                <th>Blood_group</th>
+                <th>Weight</th>
+                <th>Gender</th>
+                <th>Dob</th>
+                <th>Address</th>
+                <th>Adharno</th>
+                <th>Action</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{loop.index}}
+                <td>{{d[1]}}</td>
+                <td>{{d[2]}}</td>
+                <td>{{d[3]}}</td>
+                <td>{{d[4]}}</td>
+                <td>{{d[5]}}</td>
+                <td>{{d[6]}}</td>
+                <td>{{d[7]}}</td>
+                <td>{{d[8]}}</td>
+                <td>{{d[10]}}</td>
+
+                
+                <td>
+                  <form action="{{url_for('edit')}}" method="POST">
+                  <button value={{d[0]}} name="edit">Edit</button>
+                  </form>
+                </td>
+
+                <td>
+                  <form action="{{url_for('hold')}}" method="POST">
+                  <button value={{d[0]}} name="hold">Hold</button>
+                  </form>
+                </td>
+                
+
+                <td>
+                  <form action="{{url_for('delete')}}" method="POST">
+                  <button value={{d[0]}} name="delete">Delete</button>
+                  </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+</script>
+
+<div class="container-fluid"> <!-- Header content -->
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('view2')}}"></span> Active</a></li>
+  </ul>
+  </div>
+
+  <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('stats')}}"></span> Dashboard</a></li>
+    </div>
+
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="{{url_for('home')}}"></span> Home</a></li>
+    </ul>
+    </div>
+
+  </div>
+  </div>
+  </nav>
+</div>
+{% endblock %}
