@@ -18,24 +18,12 @@ Step 2 : Clone or download this flask repo
 https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Implementing%20Web%20Application/Create%20IBM%20DB2%20And%20Connect%20With%20Python
 ```
 
-Stpe 3 : Run flask app in debug mode 
+Stpe 3 : Run app in cmd 
 
 ```
-flask --debug run
-```
+py app.py
+``` 
 
-OR 
-
-```
- export FLASK_ENV=development
- flask run
-
-```
-
-Open the application
-
-```
-http://127.0.0.1:5000/
-
+Successfully Connected to IBM DB2 Database
 
 
