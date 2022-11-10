@@ -1,4 +1,4 @@
-# Project Development Phase- Sprint-2
+# IMPLEMENTING WEB APPLICATION-Create UI To Interact with Application
 
 Working with IBM Db2 service 
 
@@ -16,7 +16,7 @@ pip install ibm-db
 Step 2 : Clone or download this flask repo
 
 ```
-https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Project%20Development%20Phase/Sprint%202
+https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Implementing%20Web%20Application/Create%20UI%20To%20Interact%20With%20Application
 ```
 
 Stpe 3 : Run flask app in debug mode 
