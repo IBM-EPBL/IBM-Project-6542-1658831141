@@ -13,7 +13,7 @@ Also set the Environmental Variable and API KEY
 Step 2 : Clone or download this flask repo
 
 ```
-https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Project%20Development%20Phase/Sprint%202
+https://github.com/IBM-EPBL/IBM-Project-6542-1658831141/tree/main/Integrating%20SendGrid%20Service
 ```
 
 Stpe 3 : Run python application
