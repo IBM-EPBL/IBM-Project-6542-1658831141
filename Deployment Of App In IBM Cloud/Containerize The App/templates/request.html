@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <script type="text/javascript">
+    var m={{ messages|safe }};
+    for(var i=0;i<m.length;i++)
+    {
+      alert(m[i]);
+    }
+  </script>
+
+  {% endif %}
+{% endwith %}
+
+
+<div class="container-fluid"> <!-- Header content -->
+    <nav class="navbar navbar-inverse">
+<div class="container-fluid">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+<div>
+<ul class="nav navbar-nav navbar-right">
+     <li><a href="{{ url_for('accounts') }}">Dashboard</a></li>
+     <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+</ul>
+</div>
+</div>
+</nav>
+</div>
+<h1>Enter Details to Place a Request</h1>
+<form name="form_request" action='/request1' method="post">
+    <div><label for="input_requested_patientname" class="form-label">Patient Name:</label>
+    <input type="text" name="patientname" class="form-control" id="input_requested_patientname" maxlength="50"></div><br>
+
+    <div><label for="input_requested_bloodgroupneeded" class="form-label">Blood Group needed:</label>
+			<select name="bloodgroupneeded">
+				<option>A Positive</option>
+				<option>A Negative</option>
+				<option>A Unknown</option>
+				<option>B Positive</option>
+				<option>B Negative</option>
+				<option>B Unknown</option>
+				<option>AB Positive</option>
+				<option>AB Negative</option>
+				<option>AB Unknown</option>
+				<option>O Positive</option>
+				<option>O Negative</option>
+				<option>O Unknown</option>
+				<option>Unknown</option>
+			</select>
+	</div><br>
+  <form name="form_request" action='/request1' method="post">
+    <div><label for="input_requested_reasonforneed" class="form-label">Reason for need:</label>
+    <input type="text" name="reasonforneed" class="form-control" id="input_requested_reasonforneed" maxlength="50"></div><br>
+  <form name="form_request" action='/request1' method="post">
+    <div><label for="input_requested_hospitalname" class="form-label">Hospital Name:</label>
+    <input type="text" name="hospitalname" class="form-control" id="input_requested_hospitalname" maxlength="50"></div><br>
+  <form name="form_request" action='/request1' method="post">
+    <div><label for="input_requested_hospitaladdress" class="form-label">Hospital Address:</label>
+    <input type="text" name="hospitaladdress" class="form-control" id="input_requested_hospitaladdress" maxlength="50"></div><br>
+  <div><label for="input_requested_hospitalno">Hospital Contact number:</label>
+    <input type="tel" id="input_requested_hospitalno" name="hospitalno" pattern="[0-9]{10}"></div><br>
+  <div><label for="input_requested_patientgender" class="form-label"> Patient gender:</label>
+    <select name="patientgender">
+			<option value="none" selected>Gender</option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">other</option>
+        </select> </div><br>
+  <div><label for="input_requested_contactno"> Patient number:</label>
+    <input type="tel" id="input_requested_contactno" name="contactno" pattern="[0-9]{10}"></div><br>
+  <button type="submit" class="btn btn-primary" id="button_registration_submit">Place Request</button>     
+</form>
+
+
+
+<center><img src="https://plasma-apphari.s3.jp-tok.cloud-object-storage.appdomain.cloud/plasma.png" width="460" height="345"></center>
+
+{% endblock %}

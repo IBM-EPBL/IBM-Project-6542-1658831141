@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+	<div class="container-fluid"> <!-- Header content -->
+		<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="{{ url_for('register') }}">Register Here</a></li>
+         <li><a href="{{ url_for('stats') }}">Statistics</a></li>
+         
+	
+	</ul>
+    </div>
+
+</div>
+</div>
+</nav>
+</div>
+
+    <center>
+    <div>
+    <P style="color:brown;font-size:40px"; >A Platform for Active Donors{% for i in data %}{{ i[0] }} {% endfor %}</P>
+    </center>
+
+<center><img src="https://plasma-apphari.s3.jp-tok.cloud-object-storage.appdomain.cloud/plasma.png" width="460" height="345"></center>
+
+{% endblock %}
