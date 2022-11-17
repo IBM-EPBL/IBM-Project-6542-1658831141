@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <script type="text/javascript">
+    var m={{ messages|safe }};
+    for(var i=0;i<m.length;i++)
+    {
+      alert(m[i]);
+    }
+  </script>
+
+  {% endif %}
+{% endwith %}
+
+	
+	<div class="container-fluid"> <!-- Header content -->
+		<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('view2') }}">Active Donors</a></li>
+         <li><a href="{{ url_for('view') }}">Inactive Donors</a></li>
+         <li><a href="{{ url_for('accounts') }}">Dashboard</a></li>
+         <li><a href="{{ url_for('profile') }}">Profile</a></li>
+         <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+    <img src="https://plasma-apphari.s3.jp-tok.cloud-object-storage.appdomain.cloud/Donor%20Badge.jpeg" width="60" height="60">
+    </div>
+</div>
+    </nav>
+    <center><h1>Confirm Your Willingness.</h1></center>
+    <div>
+        <div>
+          <label>
+            Are You Medically Fit?
+          </label>
+          <label>
+            <input type="radio" name="fitness">
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="fitness">
+            No
+          </label><br>
+          <label for="reason" class="form-label">If not please mention the reason? </label>
+          <input type="text" name="fitness" class="form-control" id="reason" maxlength="50"></div><br>
+        </div>
+
+      <div>
+        <label for="agree">Have you got affected by any disease in the last one year?</label>
+        <label>
+          <input type="radio" name="disease">
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="disease">
+          No
+        </label><br>
+        <label for="reason" class="form-label">If Yes please specify the disease</label>
+        <input type="text" name="disease" class="form-control" id="reason" maxlength="50"></div><br>
+      <div>
+
+        <div>
+          <label for="agree">Have you got vaccinated with covid shield?</label>
+          <label>
+            <input type="radio" name="vaccination">
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="vaccination">
+            No
+          </label><br>
+          <label for="reason" class="form-label">If Yes please mention the date you got vaccinated</label>
+          <input type="date" id="vaccinationdate" name="vaccination">
+          </div><br>
+
+          <div>
+            <input type="checkbox" name="agreement" id="send_newsletter" />
+            <label for="send_newsletter">Do you fully agree to donate Plasma?</label>
+            </div><br>
+            <div> 
+
+        <input type="checkbox" name="agree" id="agree" value="yes agree"/>
+        <label for="agree">Can we share your contact details to the requester?</label>
+        </div><br>
+        <button type="submit" class="btn btn-primary" id="reaadytodonate">Ready to Donate</button>
+      </form>
+    </div>
+</div>
+
+{% endblock %}
