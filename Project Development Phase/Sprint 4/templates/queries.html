@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <script type="text/javascript">
+    var m={{ messages|safe }};
+    for(var i=0;i<m.length;i++)
+    {
+      alert(m[i]);
+    }
+  </script>
+
+  {% endif %}
+{% endwith %}
+
+<h1>Post your grievances and queries here.</h1>
+<form name="form_queries" action='/queries' method="post">
+    <div><label for="input_querier_name" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="input_querier_name" maxlength="50" required></div><br>
+    
+	<div><label for="input_querier_email" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="input_querier_email" maxlength="50" placeholder="@" required></div><br>
+	
+	<div><label for="input_querier_content" class="form-label">Write here</label>
+        <textarea type="text" id="input_querier_content" name="content" class="form-control" rows="4" cols="50" maxlength="1000"></textarea>
+    </div><br>
+    
+    <button type="submit" class="btn btn-primary" id="button_queries_submit">Submit</button>
+    </form>
+{% endblock %}
