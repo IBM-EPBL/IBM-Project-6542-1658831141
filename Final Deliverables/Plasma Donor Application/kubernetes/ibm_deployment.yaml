@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plasma-app
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: plasma-app
+  template:
+    metadata:
+      labels:
+        app: plasma-app
+
+    spec:
+      containers:
+        - name: final
+          image: jp.icr.io/finalplasma/final:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              
