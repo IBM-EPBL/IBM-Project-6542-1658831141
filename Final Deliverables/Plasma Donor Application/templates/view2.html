@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <script type="text/javascript">
+    var m={{ messages|safe }};
+    for(var i=0;i<m.length;i++)
+    {
+      alert(m[i]);
+    }
+  </script>
+
+  {% endif %}
+{% endwith %}
+
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Blood_group</th>
+                <th>Weight</th>
+                <th>Gender</th>
+                <th>Dob</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{loop.index}}
+                <td>{{d[1]}}</td>
+                <td>{{d[2]}}</td>
+                <td>{{d[4]}}</td>
+                <td>{{d[5]}}</td>
+                <td>{{d[6]}}</td>
+                <td>{{d[7]}}</td>
+                <td>{{d[8]}}</td>
+                <td>{{d[9]}}</td>
+
+
+
+                <td>
+                  <form action="{{url_for('send')}}" method="POST">
+                  <button value={{d[0]}} name="send">Send sms</button>
+                  </form>
+                </td>
+
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+</script>
+<div class="container-fluid"> <!-- Header content -->
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('view')}}"><span class="glyphicon glyphicon-log-out"></span> Inactive</a></li>
+  </ul>
+  </div>
+
+  <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('accounts')}}"><span class="glyphicon glyphicon-log-out"></span> Dashboard</a></li>
+  </ul>
+  </div>
+
+    <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+    </div>
+
+  </div>
+  </div>
+  </nav>
+</div>
+{% endblock %}

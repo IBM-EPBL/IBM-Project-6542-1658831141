@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+  <script type="text/javascript">
+    var m={{ messages|safe }};
+    for(var i=0;i<m.length;i++)
+    {
+      alert(m[i]);
+    }
+  </script>
+
+  {% endif %}
+{% endwith %}
+
+	
+	<div class="container-fluid"> <!-- Header content -->
+		<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    <div>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ url_for('view2') }}">Active Donors</a></li>
+         <li><a href="{{ url_for('view') }}">Inactive Donors</a></li>
+         <li><a href="{{ url_for('accounts') }}">Dashboard</a></li>
+         <li><a href="{{ url_for('profile') }}">Profile</a></li>
+         <li><a href="{{url_for('login')}}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+    <img src="https://plasma-apphari.s3.jp-tok.cloud-object-storage.appdomain.cloud/Donor%20Badge.jpeg" width="60" height="60">
+    </div>
+</div>
+    </nav>
+    <center><h1>Confirm Your Willingness.</h1></center>
+    <div>
+    <form name="form_willingness" action='/donate' method="post">
+    
+      <div><label for="input_willingness_name" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="input_willingness_name" maxlength="50" required></div><br>    
+
+      <div><label for="input_willingness_email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" id="input_willingness_email" maxlength="50" placeholder="@" required></div><br>
+      
+      <div>  
+          <label>
+            Are You Medically Fit?
+          </label>
+          <label>
+            <input type="radio" name="fitness" value="yes">
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="fitness" value="no">
+            No
+          </label><br>
+          <label for="fitreason" class="form-label">If not please mention the reason? </label>
+          <input type="text" name="fitreason" class="form-control" id="fitreason" maxlength="50"></div><br>
+        </div>
+
+      <div>
+        <label for="agree">Have you got affected by any disease in the last one year?</label>
+        <label>
+          <input type="radio" name="disease" value="yes">
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="disease" value="no">
+          No
+        </label><br>
+        <label for="specdisease" class="form-label">If Yes please specify the disease</label>
+        <input type="text" name="specdisease" class="form-control" id="specreason" maxlength="50">
+      </div><br>
+
+        <div>
+          <label for="agree">Have you got vaccinated with covid shield?</label>
+          <label>
+            <input type="radio" name="vaccination" value="yes">
+            Yes
+          </label>
+          <label>
+            <input type="radio" name="vaccination" value="no">
+            No
+          </label><br>
+          <label for="vaccinationdate" class="form-label">If Yes please mention the date you got vaccinated</label>
+          <input type="date" id="vaccinationdate" name="vaccinationdate">
+          </div><br>
+
+          <div>
+            <input type="checkbox" name="agreement" id="agreement" value="yes" required/>
+            <label for="agreement">Do you fully agree to donate Plasma?</label>
+            </div><br>
+         
+          <div> 
+        <input type="checkbox" name="sharecontact" id="agreement" value="yes" required/>
+        <label for="agreement">Can we share your contact details to the requester?</label>
+        </div><br>
+
+        <button type="submit" class="btn btn-primary" id="readytodonate">Ready to Donate</button>
+
+    </div>
+  </form>
+    </div>
+</div>
+
+{% endblock %}

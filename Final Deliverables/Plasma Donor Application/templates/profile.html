@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+
+	<script type="text/javascript">
+		var m={{ messages|safe }};
+		for(var i=0;i<m.length;i++)
+		{
+			alert(m[i]);
+		}
+	</script>
+
+	{% endif %}
+{% endwith %}
+
+    <title>Profile Page</title>
+
+    <!-- FontAwesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar top -->
+    <div class="navbar-top">
+        <div class="title">
+            <h1>Profile</h1>
+        </div>
+
+        
+                            <p class="display"><b>Name:</b> {{ user['NAME'] }} </p><br>
+                        
+                            <p class="display"><b>Email:</b> {{ user['EMAIL'] }} </p><br>
+                        
+                            <p class="display"><b>Phone:</b> {{ user['PHNO'] }} </p><br>
+                        
+                            <p class="display"><b>Blood Group:</b> {{ user['BLOODGROUP'] }} </p><br>
+                        
+                            <p class="display"><b>Gender:</b> {{ user['GENDER'] }} </p>
+        </div>
+
+        <h2>SOCIAL MEDIA</h2>
+                <div class="social-media">
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-invision fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-whatsapp fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <span class="fa-stack fa-sm">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-snapchat fa-stack-1x fa-inverse"></i>
+                    </span>
+
+
+                    <div>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="{{url_for('accounts')}}"><span class="glyphicon glyphicon-log-out"></span> Dashboard</a></li>
+                      </ul>
+                      </div>
+
+
+                    <center><img src="https://plasma-apphari.s3.jp-tok.cloud-object-storage.appdomain.cloud/plasma.png" width="460" height="345"></center>
+ 
+{% endblock %}
